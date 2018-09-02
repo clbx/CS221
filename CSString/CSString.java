@@ -147,6 +147,9 @@ public class CSString{
 
 	//TODO: Check if this actually works properly lmao, probably rework since it's shit code
 	public int compareTo(CSString str){
+		if(str == null){
+			return 0;
+		}
 		for(int i = 0; i < str.length() && i < this.str.length; i++){
 			if(str.charAt(i) > this.str[i]){
 				return 1;
@@ -155,16 +158,13 @@ public class CSString{
 				return -1;
 			}
 
-			if( i < str.length()){
+			if( i > str.length()){
 				return 1;
 			}
-			if( i < this.str.length){
+			if( i > this.str.length){
 				return -1;
 			}
 		}
-
-
-
 		return 0;
 	}
 
@@ -174,7 +174,27 @@ public class CSString{
 	*
 	*/
 	public int find(CSString str){
-		return 0;
+		if(str == null || str.length() == 0){
+			return 0;
+		}
+		for(int i = 0; i < this.str.length; i++){
+			if(i + str.length() > this.str.length){
+				return -1;
+			}
+			int subIndex = i;
+			for(int j=0; j < str.length(); j++){
+				if(str.charAt(j) == this.str[subIndex]){
+					if(j==str.length()-1){
+						return i;
+					}
+					subIndex++;
+				}
+				else{
+					break;
+				}
+			}
+		}
+		return -1;
 	}
 
 	/*
@@ -183,7 +203,27 @@ public class CSString{
 	*
 	*/
 	public int find(CSString str, int start){
-		return 0;
+		if(str == null || str.length() == 0){
+			return 0;
+		}
+		for(int i = start; i < this.str.length; i++){
+			if(i + str.length() > this.str.length){
+				return -1;
+			}
+			int subIndex = i;
+			for(int j=0; j < str.length(); j++){
+				if(str.charAt(j) == this.str[subIndex]){
+					if(j==str.length()-1){
+						return i;
+					}
+					subIndex++;
+				}
+				else{
+					break;
+				}
+			}
+		}
+		return -1;
 	}
 
 	/*
