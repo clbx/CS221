@@ -1,6 +1,5 @@
 public class CSString{
 
-	//Default size 256
 	private char[] str;
 
 
@@ -24,21 +23,50 @@ public class CSString{
 	* Takes integer, sets str to string representation of that
 	*/
 	public CSString(int input){
-		String intTemp = Integer.toString(input);
-		this.str = new char[intTemp.length()];
-		for(int i = 0; i < intTemp.length(); i++){
-			this.str[i] = intTemp.charAt(i);
-		}
+		this.str = intToChar(input);
 	}
 
 	//FUNCTIONS
+	/*
+	*params: the input integer to be put in a char array
+	*returns: the char array of the integer
+	* Takes in an integer and retuns it as a character array
+	*/
+	private char[] intToChar(int n){
+		int len = getDigitLen(n);
+		char[] str = new char[len];
+		for(int i = 0; i < len; i++){
+			str[len-1-i] = (char)(n%10);
+			n /= 10;
+		}
+		return str;
+	};
+	/*
+	*params: int to find out length
+	*returns: the number of digits
+	* Returns how many digits there are in a integer
+	*/
+	private int getDigitLen(int n){
+		int len = 0;
+		while(n != 0){
+			n /= 10;
+			len++;
+		}
+		return len;
+	}
 	/*
 	*params: the posision to look at
 	*returns: the character at the position
 	* gets the character at a certain position
 	*/
 	public char charAt(int position){
-		return this.str[position];
+		//Checks to see if there an element at that point
+		try{
+			return this.str[position]; //If so return said element
+		}
+		catch(ArrayIndexOutOfBoundsException exception){
+			return ' '; //Otherwise just return nothing
+		}
 	}
 	/*
 	*params: string to set CSString as
@@ -58,11 +86,7 @@ public class CSString{
 	* Sets the CSSString to a new String representation of an integer
 	*/
 	public void set(int number){
-		String intTemp = Integer.toString(number);
-		this.str = new char[intTemp.length()];
-		for(int i = 0; i < intTemp.length(); i++){
-			this.str[i] = intTemp.charAt(i);
-		}
+		this.str = intToChar(number);
 	}
 
 	/*
@@ -71,7 +95,7 @@ public class CSString{
 	* Just gets the length of CSString
 	*/
 	public int length(){
-		return this.str.length;
+		return str.length;
 	}
 
 	/*
@@ -90,7 +114,16 @@ public class CSString{
 	*
 	*/
 	public void append(String str){
-
+		char[] newstr = new char[this.str.length + str.length()];
+		for(int i = 0; i < this.str.length; i++){
+			newstr[i] = str.charAt(i);
+		}
+		int j = 0;
+		for(int i = this.str.length; i < this.str.length+str.length(); i++){
+			newstr[i] = str.charAt(j);
+			j++;
+		}
+		this.str = newstr;
 	}
 	/*
 	*params:
@@ -98,7 +131,12 @@ public class CSString{
 	*
 	*/
 	public void append(char ch){
-
+		char[] newstr = new char[this.str.length + 1];
+		for(int i = 0; i < this.str.length; i++){
+			newstr[i] = this.str[i];
+		}
+		newstr[this.str.length] = ch;
+		this.str = newstr;
 	}
 
 	/*
@@ -106,7 +144,27 @@ public class CSString{
 	*returns:
 	*
 	*/
+
+	//TODO: Check if this actually works properly lmao, probably rework since it's shit code
 	public int compareTo(CSString str){
+		for(int i = 0; i < str.length() && i < this.str.length; i++){
+			if(str.charAt(i) > this.str[i]){
+				return 1;
+			}
+			if(str.charAt(i) > this.str[i]){
+				return -1;
+			}
+
+			if( i < str.length()){
+				return 1;
+			}
+			if( i < this.str.length){
+				return -1;
+			}
+		}
+
+
+
 		return 0;
 	}
 
