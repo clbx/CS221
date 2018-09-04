@@ -36,7 +36,7 @@ public class CSString{
 		int len = getDigitLen(n);
 		char[] str = new char[len];
 		for(int i = 0; i < len; i++){
-			str[len-1-i] = (char)(n%10);
+			str[len-1-i] = (char)(n%10+48);
 			n /= 10;
 		}
 		return str;
@@ -105,6 +105,9 @@ public class CSString{
 	*/
 	public void expand(int n){
 		char[] temp = new char[str.length + n];
+		for(int i = 0; i < this.str.length; i++){
+			temp[i] = this.str[i];
+		}
 		this.str = temp;
 	}
 
@@ -116,7 +119,7 @@ public class CSString{
 	public void append(String str){
 		char[] newstr = new char[this.str.length + str.length()];
 		for(int i = 0; i < this.str.length; i++){
-			newstr[i] = str.charAt(i);
+			newstr[i] = this.str[i];
 		}
 		int j = 0;
 		for(int i = this.str.length; i < this.str.length+str.length(); i++){
@@ -145,17 +148,16 @@ public class CSString{
 	*
 	*/
 
-	//TODO: Check if this actually works properly lmao, probably rework since it's shit code
 	public int compareTo(CSString str){
 		if(str == null){
 			return 0;
 		}
 		for(int i = 0; i < str.length() && i < this.str.length; i++){
 			if(str.charAt(i) > this.str[i]){
-				return 1;
+				return -1;
 			}
 			if(str.charAt(i) > this.str[i]){
-				return -1;
+				return 1;
 			}
 
 			if( i > str.length()){

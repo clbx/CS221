@@ -4,7 +4,7 @@ public class testString{
 
 		CSString noinput = new CSString();
 		CSString stringput = new CSString("Hello World");
-		CSString intinput = new CSString("123.456");
+		CSString intinput = new CSString(123);
 
 
 		//TESTS
@@ -53,6 +53,16 @@ public class testString{
 		System.out.println(str.find(index));
 
 		System.out.println(str.find(index, 7));
+
+		CSString first = new CSString("Apple");
+		CSString second = new CSString("Banana");
+
+
+		System.out.println("Should be 1");
+		System.out.println(first.compareTo(second));
+
+		System.out.println("Should be -1");
+		System.out.println(second.compareTo(first));
 
 
 
