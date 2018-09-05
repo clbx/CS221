@@ -1,6 +1,7 @@
 public class CSString{
 
 	private char[] str;
+	private int length;
 
 
 	//CONSTRUCTORS
@@ -15,6 +16,7 @@ public class CSString{
 	*/
 	public CSString(String input){
 		this.str = new char[input.length()];
+		this.length = input.length();
 		for(int i = 0; i < input.length(); i++){
 			this.str[i] = input.charAt(i);
 		}
@@ -24,6 +26,7 @@ public class CSString{
 	*/
 	public CSString(int input){
 		this.str = intToChar(input);
+		length = this.str.length;
 	}
 
 	//FUNCTIONS
@@ -78,6 +81,7 @@ public class CSString{
 		for(int i = 0; i < str.length(); i++){
 			this.str[i] = str.charAt(i);
 		}
+		this.length = this.str.length;
 
 	}
 	/*
@@ -87,6 +91,7 @@ public class CSString{
 	*/
 	public void set(int number){
 		this.str = intToChar(number);
+		this.length = this.str.length;
 	}
 
 	/*
@@ -117,16 +122,17 @@ public class CSString{
 	*
 	*/
 	public void append(String str){
-		char[] newstr = new char[this.str.length + str.length()];
-		for(int i = 0; i < this.str.length; i++){
+		char[] newstr = new char[this.length + str.length()];
+		for(int i = 0; i < this.length; i++){
 			newstr[i] = this.str[i];
 		}
 		int j = 0;
-		for(int i = this.str.length; i < this.str.length+str.length(); i++){
+		for(int i = this.length; i < this.length+str.length(); i++){
 			newstr[i] = str.charAt(j);
 			j++;
 		}
 		this.str = newstr;
+		this.length += str.length();
 	}
 	/*
 	*params:
@@ -134,12 +140,13 @@ public class CSString{
 	*
 	*/
 	public void append(char ch){
-		char[] newstr = new char[this.str.length + 1];
-		for(int i = 0; i < this.str.length; i++){
+		char[] newstr = new char[this.length + 1];
+		for(int i = 0; i < this.length; i++){
 			newstr[i] = this.str[i];
 		}
-		newstr[this.str.length] = ch;
+		newstr[this.length] = ch;
 		this.str = newstr;
+		this.length += 1;
 	}
 
 	/*
@@ -152,7 +159,7 @@ public class CSString{
 		if(str == null){
 			return 0;
 		}
-		for(int i = 0; i < str.length() && i < this.str.length; i++){
+		for(int i = 0; i < str.length() && i < this.length; i++){
 			if(str.charAt(i) > this.str[i]){
 				return -1;
 			}
