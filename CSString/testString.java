@@ -38,7 +38,9 @@ public class testString{
 
 		System.out.println(str.length());
 
-		str.expand(2);
+		str.expand(12);
+
+		System.out.println(str.length());
 
 		str.append("boop ");
 
@@ -52,7 +54,7 @@ public class testString{
 
 		System.out.println(str.find(index));
 
-		System.out.println(str.find(index, 7));
+		System.out.println(str.find(index, 12));
 
 		CSString first = new CSString("Apple");
 		CSString second = new CSString("Banana");

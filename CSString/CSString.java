@@ -1,3 +1,11 @@
+/**
+* CSString. A fake string class.
+* Author: Clay Buxton
+* Last Modifed: 9/7/18
+* Description: A replica of the String class with a few functions.
+*/
+
+
 public class CSString{
 
 	private char[] str;
@@ -119,7 +127,7 @@ public class CSString{
 	/*
 	*params: The string to append to the end of the array
 	*returns: nothing
-	*
+	* Adds the argument to the end of the current string
 	*/
 	public void append(String str){
 		char[] newstr = new char[this.length + str.length()];
@@ -135,9 +143,9 @@ public class CSString{
 		this.length += str.length();
 	}
 	/*
-	*params:
-	*returns:
-	*
+	*params: The character to add to the end of the string
+	*returns: nothing
+	* Adds the character to the end of the current string
 	*/
 	public void append(char ch){
 		char[] newstr = new char[this.length + 1];
@@ -150,9 +158,10 @@ public class CSString{
 	}
 
 	/*
-	*params:
-	*returns:
-	*
+	*params: The string to compare to the csstring
+	*returns: the return int
+	* returns 0 if they are the same, -1 if it comes alphabetically before and
+	* -1 if it's alphabetically after
 	*/
 
 	public int compareTo(CSString str){
@@ -163,7 +172,7 @@ public class CSString{
 			if(str.charAt(i) > this.str[i]){
 				return -1;
 			}
-			if(str.charAt(i) > this.str[i]){
+			if(str.charAt(i) < this.str[i]){
 				return 1;
 			}
 
@@ -178,9 +187,9 @@ public class CSString{
 	}
 
 	/*
-	*params:
-	*returns:
-	*
+	*params: The string to search for
+	*returns: The position it's at
+	* Returns the location of a substring that is being searched for
 	*/
 	public int find(CSString str){
 		if(str == null || str.length() == 0){
@@ -207,9 +216,9 @@ public class CSString{
 	}
 
 	/*
-	*params:
-	*returns:
-	*
+	*params: The string it's searching for, what position to start at
+	*returns: The position it's at
+	* Returns the location of the substring after the start position
 	*/
 	public int find(CSString str, int start){
 		if(str == null || str.length() == 0){
@@ -236,9 +245,9 @@ public class CSString{
 	}
 
 	/*
-	*params:
-	*returns:
-	*
+	*params: nothing
+	*returns: Returns the CSString as a String
+	* Give the CSString in the form of a string.
 	*/
 	public String toString(){
 		String str = "";
