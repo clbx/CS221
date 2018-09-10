@@ -1,34 +1,35 @@
-public class Stack{
 
-  private int[] stack;
-  private int pos;
-
-
-  public Stack(int height){
-    this.stack = new int[height];
-    this.pos = 0;
-  }
-
-  public void push(int input){
-    if(pos == stack.length){
-      int[] newstack = new int[stack.length + 5];
-      for(int i = 0; i < stack.length; i++){
-        newstack[i] = stack[i];
-      }
-      stack = newstack;
-    }
-
-   stack[++pos] = input;
-  }
-
-  public int pop(){
-    if(pos == 0){
-      return 0;
-    }
-    int val = stack[pos];
-    stack[pos] = 0;
-    pos--;
-    return val;
-  }
-
+public class Stack {
+	double[] stack = null;
+	int sp = -1;
+	
+	public Stack(int size) {
+		stack = new double[size];
+		sp = -1;
+	}
+	
+	public Stack() {
+		stack = new double[100];
+		sp = -1;
+	}
+	
+	public void push(double value) throws StackException {
+		if (sp>=stack.length-1) throw(new StackException("Stack Overflow"));
+		stack[++sp] = value;
+	}
+	
+	public double pop() throws StackException {
+		if (sp<0) throw(new StackException("Stack Underflow"));
+		return stack[sp--];
+	}
+	
+	public double peek() throws StackException {
+		if (sp<0) throw(new StackException("Stack Empty"));
+		return stack[sp];
+	}
+	public double top() throws StackException {
+		if (sp<0) throw(new StackException("Stack Empty"));
+		return stack[sp];
+	}
+	
 }
