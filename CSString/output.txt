@@ -1,0 +1,33 @@
+
+Hello World
+123
+Char at 2
+ 
+Set to 'Hello World'
+Hello World
+Set to integer 234
+234
+Set to Hello World
+To String: 
+World Hello
+Length of string
+11
+Expand String
+Print length after expand
+23
+Append boop
+World Helloboop
+Append m
+World Helloboopm
+find 'boop' 
+11
+Find boop after 12 (Its not there)
+-1
+Create 2 new strings 'apple' and 'banana'
+Compare apple to banana
+Should be -1
+-1
+Compare banana to apple
+Should be 1
+1
+
