@@ -1,2 +1,6 @@
 
 *.class
+
+Converter&Calculator/\.idea/
+
+*.iml

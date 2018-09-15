@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class PostfixCalc {
 
 	public static void main(String[] args) throws StackException {
-		// TODO Auto-generated method stub
 		Stack stack = new Stack(5);
 		Scanner kb = new Scanner(System.in);
 		double n;
