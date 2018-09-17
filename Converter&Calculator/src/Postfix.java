@@ -1,10 +1,9 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
 /**
- * @class Postfix
  * @author buxtonc
- * @modifed 9/15/18
- *
- * @desc Postfix class that contains tools for converting infix to postfix
- *       calculating postfix.
  */
 
 public class Postfix {
@@ -16,84 +15,73 @@ public class Postfix {
     this.infix = infix;
   }
 
-
   /**
-   * @throws StackException
+   *
+   * @throws StackException if the stack overflows or underflows.
    */
   public void processInfix() throws StackException {
+    System.out.println("infix: " + infix);
 
-    boolean needSpace = true;
-    Stack<Character> stack = new Stack<>(infix.length());
+    StringTokenizer tokens = new StringTokenizer(infix, " ");
+    Queue<String> queue = new LinkedList<>();
+    Stack<Character> stack = new Stack<>();
 
-    for (int i = 0; i < infix.length(); i++) {
-      needSpace = true;
-      //If its a operand, just push it to the postfix
-      if (!isOperator(infix.charAt(i))) {
-        postfix += infix.charAt(i);
-        try {
-          if (Character.isDigit(infix.charAt(i + 1)) || infix.charAt(i + 1) == '.')
-            needSpace = false;
-        } catch (StringIndexOutOfBoundsException e) {
-        }
+    while (tokens.hasMoreTokens()){
+      String tok = tokens.nextToken();
+      //If token is operand. Push to queue
+      if(isNumber(tok)){
+        queue.add(tok);
       }
-      //If you run intso a ( slap it on the stack
-      else if (infix.charAt(i) == '(') {
+      //If token is open paren. Push to stack
+      else if(tok.equals("(")){
         stack.push('(');
-        needSpace = false;
       }
-      //If you run into it's big brother you gotta go looking for the little one
-      else if (infix.charAt(i) == ')') {
-        while (stack.peek() != '(') {
-          postfix += stack.pop();
-          postfix += " ";
+      //If token is close paren. Push everything from stack to queue until close paren
+      else if(tok.equals(")")){
+        while(stack.peek() != ('(') && !stack.isEmpty()){
+          queue.add(stack.pop() + "");
         }
         stack.pop();
-        needSpace = false;
       }
-      //If its a operator we gotta start really playing with the stack
-      else if (isOperator(infix.charAt(i))) {
+      //Otherwise check if its an operator
+      else if(isOperator(tok)){
+        char ch = tok.charAt(0);
         try {
-          needSpace = false;
-          //If the precidence is higher, just put it on the stack
-          if (getPrecidence(infix.charAt(i)) > getPrecidence(stack.peek())) {
-            stack.push(infix.charAt(i));
-            needSpace = false;
-          }
-          //If its lower
-          else {
-            while (getPrecidence(infix.charAt(i)) <= getPrecidence(stack.peek())) {
-              postfix += stack.pop();
-              postfix += " ";
-              needSpace = false;
+          if (!stack.isEmpty()) {
+            if (getPrecidence(ch) > getPrecidence(stack.peek())) {
+              stack.push(ch);
+            } else {
+              while (getPrecidence(ch) <= getPrecidence(stack.peek()) && !stack.isEmpty()) {
+                queue.add(stack.pop() + "");
+              }
+              stack.push(ch);
             }
-            stack.push(infix.charAt(i));
+          } else {
+            stack.push(ch);
           }
-        } catch (StackException e) { //But if the stack is empty, then we just put it on
-          stack.push(infix.charAt(i));
         }
-
+        catch (StackException e){
+          stack.push(ch);
+        }
+      }
+      //If its none of those, skip it an let the user know they're a bad person
+      else{
+        System.out.println("You're a bad person");
       }
 
-      if (needSpace) {
-        postfix += " ";
-      }
     }
-    //Pop all remaining operators
-    while (true) {
-      try {
-        postfix += stack.pop();
-        postfix += " ";
-      } catch (StackException e) {
-        break;
-      }
+    while(!stack.isEmpty()){
+      queue.add(stack.pop() + "");
     }
-    System.out.println("Postfix: " + postfix);
+
+    System.out.println("PRINTING QUEUE: " + queue);
+
   }
 
   /**
    *
    * @return the number calculated from the postfix expression
-   * @throws StackException
+   * @throws StackException if the stack overflows or underflows
    */
   public double calculatePostfix() throws StackException {
 
@@ -107,7 +95,7 @@ public class Postfix {
         i++;
       }
       //If it's a number put it on the stack
-      if (isNumber(temp) && !isOperator(temp.charAt(0))) {
+      if (isNumber(temp) && !isOperator(temp)) {
         stack.push(Double.parseDouble(temp));
       }
       //If its an operator
@@ -158,11 +146,11 @@ public class Postfix {
 
   /**
    *
-   * @param ch the character being checked
+   * @param str the character being checked
    * @return if the character is a operator
    */
-  private boolean isOperator(char ch) {
-    return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '(' || ch == ')');
+  private boolean isOperator(String str) {
+    return (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/"));
   }
 
   /**
@@ -171,7 +159,12 @@ public class Postfix {
    * @return is the string a number.
    */
   private boolean isNumber(String str) {
-    return str.matches("[+-]?\\d*(\\.\\d+)?");
+    try{
+      double temp = Double.parseDouble(str);
+      return true;
+    }catch (NumberFormatException e){
+      return false;
+    }
   }
 
 }

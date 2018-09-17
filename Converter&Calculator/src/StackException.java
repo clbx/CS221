@@ -1,9 +1,12 @@
-
+/**
+ * @author buxtonc
+ */
 public class StackException extends Exception {
-  public StackException() {
-    super();
-  }
 
+  /**
+   *
+   * @param errorMessage the message to return
+   */
   public StackException(String errorMessage) {
     super(errorMessage);
   }
