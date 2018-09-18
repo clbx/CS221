@@ -6,45 +6,44 @@ import java.util.StringTokenizer;
  * @author buxtonc
  */
 
-public class Postfix {
+class Postfix {
 
-  private String postfix = "";
   private String infix;
+  private Queue<String> queue = new LinkedList<>();
 
-  public Postfix(String infix) {
+
+  Postfix(String infix) {
     this.infix = infix;
   }
 
   /**
-   *
    * @throws StackException if the stack overflows or underflows.
    */
-  public void processInfix() throws StackException {
+  void processInfix() throws StackException {
     System.out.println("infix: " + infix);
 
     StringTokenizer tokens = new StringTokenizer(infix, " ");
-    Queue<String> queue = new LinkedList<>();
     Stack<Character> stack = new Stack<>();
 
-    while (tokens.hasMoreTokens()){
+    while (tokens.hasMoreTokens()) {
       String tok = tokens.nextToken();
       //If token is operand. Push to queue
-      if(isNumber(tok)){
+      if (isNumber(tok)) {
         queue.add(tok);
       }
       //If token is open paren. Push to stack
-      else if(tok.equals("(")){
+      else if (tok.equals("(")) {
         stack.push('(');
       }
       //If token is close paren. Push everything from stack to queue until close paren
-      else if(tok.equals(")")){
-        while(stack.peek() != ('(') && !stack.isEmpty()){
+      else if (tok.equals(")")) {
+        while (stack.peek() != ('(') && !stack.isEmpty()) {
           queue.add(stack.pop() + "");
         }
         stack.pop();
       }
       //Otherwise check if its an operator
-      else if(isOperator(tok)){
+      else if (isOperator(tok)) {
         char ch = tok.charAt(0);
         try {
           if (!stack.isEmpty()) {
@@ -60,49 +59,42 @@ public class Postfix {
             stack.push(ch);
           }
         }
-        catch (StackException e){
+        //TODO: Fix this garbage.
+        catch (StackException e) {
           stack.push(ch);
         }
       }
       //If its none of those, skip it an let the user know they're a bad person
-      else{
+      else {
         System.out.println("You're a bad person");
       }
 
     }
-    while(!stack.isEmpty()){
+    while (!stack.isEmpty()) {
       queue.add(stack.pop() + "");
     }
 
-    System.out.println("PRINTING QUEUE: " + queue);
+    System.out.println("Postfix Queue: " + queue);
 
   }
 
   /**
-   *
    * @return the number calculated from the postfix expression
    * @throws StackException if the stack overflows or underflows
    */
-  public double calculatePostfix() throws StackException {
+  double calculatePostfix() throws StackException {
 
-    Stack<Double> stack = new Stack<>(postfix.length());
-    int i = 0;
-    while (i < postfix.length()) {
-      String temp = "";
-      //Get the next thing in a string for usage
-      while (postfix.charAt(i) != ' ') {
-        temp += postfix.charAt(i);
-        i++;
-      }
+    Stack<Double> stack = new Stack<>(queue.size());
+    for (String item : queue) {
       //If it's a number put it on the stack
-      if (isNumber(temp) && !isOperator(temp)) {
-        stack.push(Double.parseDouble(temp));
+      if (isNumber(item) && !isOperator(item)) {
+        stack.push(Double.parseDouble(item));
       }
       //If its an operator
       else {
         double a;
         double b;
-        switch (temp) {
+        switch (item) {
           case "+":
             a = stack.pop();
             b = stack.pop();
@@ -125,13 +117,11 @@ public class Postfix {
             break;
         }
       }
-      i++;
     }
     return stack.pop();
   }
 
   /**
-   *
    * @param ch character being checking
    * @return the precidence of the character
    */
@@ -145,7 +135,6 @@ public class Postfix {
   }
 
   /**
-   *
    * @param str the character being checked
    * @return if the character is a operator
    */
@@ -154,15 +143,14 @@ public class Postfix {
   }
 
   /**
-   *
    * @param str checks if the string is a number using a regex
    * @return is the string a number.
    */
   private boolean isNumber(String str) {
-    try{
-      double temp = Double.parseDouble(str);
+    try {
+      Double.parseDouble(str);
       return true;
-    }catch (NumberFormatException e){
+    } catch (NumberFormatException e) {
       return false;
     }
   }
