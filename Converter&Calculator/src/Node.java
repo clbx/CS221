@@ -1,7 +1,7 @@
 public class Node <Type>{
 
-  public Node next;
-  public Node prev;
+  public Node<Type> next;
+  public Node<Type> prev;
   Type data;
 
   public Node(Type data){

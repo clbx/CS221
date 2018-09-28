@@ -23,7 +23,7 @@ class Postfix {
     System.out.println("infix: " + infix);
 
     StringTokenizer tokens = new StringTokenizer(infix, " ");
-    Stack<Character> stack = new Stack<>();
+    DoublyLinkedList<Character> stack = new DoublyLinkedList<>();
 
     while (tokens.hasMoreTokens()) {
       String tok = tokens.nextToken();
