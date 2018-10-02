@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0100f98f-b2a1-4fa5-a96b-4f1f82a0fcf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Deque.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Postfix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Postfix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConvertCalculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConvertCalculate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,17 +36,19 @@
     <session id="-2018710995">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -69,12 +69,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="java" value="7244" />
+          <entry key="java" value="7539" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7244" />
+          <entry key="JAVA" value="7539" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
@@ -88,26 +88,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/ConvertCalculate.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="178">
-                  <caret line="12" selection-start-line="12" selection-end-line="12" />
+                <state relative-caret-position="119">
+                  <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DoublyLinkedList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-                  <folding>
-                    <element signature="e#1101#1102#0" expanded="true" />
-                    <element signature="e#1132#1133#0" expanded="true" />
-                    <element signature="e#1242#1243#0" expanded="true" />
-                    <element signature="e#1262#1263#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="510">
+                  <caret line="30" selection-start-line="30" selection-end-line="30" />
                 </state>
               </provider>
             </entry>
@@ -146,8 +140,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Stack.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-68">
-                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="21" />
+                <state relative-caret-position="340">
+                  <caret line="20" selection-start-line="20" selection-end-line="21" />
                 </state>
               </provider>
             </entry>
@@ -194,13 +188,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/StackException.java" />
         <option value="$PROJECT_DIR$/src/temp.java" />
-        <option value="$PROJECT_DIR$/src/ConvertCalculate.java" />
         <option value="$PROJECT_DIR$/src/Stack.java" />
         <option value="$PROJECT_DIR$/src/List.java" />
         <option value="$PROJECT_DIR$/src/Deque.java" />
         <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/Postfix.java" />
         <option value="$PROJECT_DIR$/src/DoublyLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/ConvertCalculate.java" />
       </list>
     </option>
   </component>
@@ -299,6 +293,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,15 +312,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538115985886" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538333808130" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -384,11 +378,15 @@
       <workItem from="1537984767150" duration="495000" />
       <workItem from="1538005823926" duration="1418000" />
       <workItem from="1538116718418" duration="312000" />
+      <workItem from="1538153014533" duration="599000" />
+      <workItem from="1538316974945" duration="3369000" />
+      <workItem from="1538404877449" duration="69000" />
+      <workItem from="1538417518182" duration="1527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32455000" />
+    <option name="totallyTimeSpent" value="38019000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,10 +398,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="-7" width="1358" height="756" extended-state="0" />
-    <editor active="true" />
+    <frame x="4" y="8" width="1358" height="756" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.094801225" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13149847" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -412,7 +409,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31868133" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32182103" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.45100105" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -527,17 +524,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Deque.java" />
     <entry file="file://$PROJECT_DIR$/src/Queue.java" />
-    <entry file="file://$PROJECT_DIR$/src/StackException.java">
+    <entry file="file://$PROJECT_DIR$/src/ConvertCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="119">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stack.java">
+    <entry file="file://$PROJECT_DIR$/src/DoublyLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -548,10 +545,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConvertCalculate.java">
+    <entry file="file://$PROJECT_DIR$/src/StackException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="136">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -561,19 +565,6 @@
           <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DoublyLinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#1101#1102#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
           </folding>
         </state>
       </provider>
