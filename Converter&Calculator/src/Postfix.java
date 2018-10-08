@@ -84,7 +84,7 @@ class Postfix {
    */
   double calculatePostfix() throws StackException {
 
-    Stack<Double> stack = new Stack<>(queue.size());
+    DoublyLinkedList<Double> stack = new DoublyLinkedList<>();
     for (String item : queue) {
       //If it's a number put it on the stack
       if (isNumber(item) && !isOperator(item)) {
