@@ -1,12 +1,25 @@
+/**
+*@author buxtonc
+*
+*/
+
 public class AVLTree {
 
+  //Root Node
   public Node root;
-
+  
   public AVLTree(){
 
   }
-
-
+	
+	
+   /**
+   *Inserts a node into the tree
+   *
+   *@param int data: the number to be inserted into the tree
+   *@param Node n: The root of the tree
+   *@return Node: the root of the adjusted tree
+   */
    Node insert(int data, Node n){
     if(n == null){
       n = new Node(data);
@@ -43,6 +56,12 @@ public class AVLTree {
   }
 
 
+  /**
+  *Rotates the tree to the left
+  *
+  *@param Node root: The root of the subtree that needs rotating
+  *@return Node: The root of the rotated subtree
+  */
   private Node rotateLeft(Node root){
     Node right = root.right;
     Node temp = right.left;
@@ -55,6 +74,12 @@ public class AVLTree {
     return right;
   }
 
+  /**
+  *Rotates the tree to the right
+  *
+  *@param Node root: The root of the node that needs rotating
+  *@return Node: The root of the rotated subtree
+  */
   private Node rotateRight(Node root){
     Node left = root.left;
     Node temp = left.right;
@@ -68,12 +93,26 @@ public class AVLTree {
     return left;
   }
 
+  /**
+  * Getter for the node height
+  *
+  *@param Node node: node to get height from
+  *@return int: the height of the node
+  */
   int getHeight(Node node){
     if(node == null)
       return 0;
     return node.height;
   }
 
+  
+  /**
+  * Gets the balance between the right and left subtrees
+  *
+  *@param Node node: The node to measure the left and right trees
+  *@return int: The difference in balance between left and right
+  *
+  */
   int getBalance(Node node){
     if( node == null)
       return 0;
@@ -81,6 +120,13 @@ public class AVLTree {
   }
 
 
+  /**
+  * Gets the max between 2 numbers
+  *
+  *@param int a: the first number
+  *@param int b: the second number
+  *@return int, the max between a or b.
+  */
   private int max(int a, int b) {
     if (a > b)
       return a;
@@ -89,6 +135,13 @@ public class AVLTree {
   }
 
 
+  /**
+  *
+  *Traverses a tree 
+  *
+  *@param Node root: the root of the tree
+  *
+  */
   public void traverse(Node root){
     if(root != null){
       traverse(root.left);
